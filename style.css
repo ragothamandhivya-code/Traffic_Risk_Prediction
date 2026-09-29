@@ -1,0 +1,78 @@
+const videoInput = document.getElementById("videoInput");
+const trafficVideo = document.getElementById("trafficVideo");
+const videoContainer = document.querySelector(".video-container");
+
+/* Upload Video */
+
+videoInput.addEventListener("change", function () {
+
+    const file = this.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    const videoURL = URL.createObjectURL(file);
+
+    trafficVideo.src = videoURL;
+
+    videoContainer.style.display = "block";
+
+    trafficVideo.style.display = "block";
+
+    trafficVideo.load();
+
+});
+
+
+/* Prediction */
+
+async function startPrediction() {
+
+    const file = videoInput.files[0];
+
+    if (!file) {
+
+        alert("Please upload a traffic video first.");
+
+        return;
+    }
+
+    const formData = new FormData();
+
+    formData.append("video", file);
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:5000/predict",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Server error: " + response.status);
+        }
+
+        const data = await response.json();
+
+        document.getElementById("vehicleCount").innerText =
+            data.vehicle_count;
+
+        document.getElementById("density").innerText =
+            data.density;
+
+        document.getElementById("risk").innerText =
+            data.risk;
+
+    } catch (error) {
+
+        console.error("Prediction error:", error);
+
+        alert("Prediction failed. Please try again.");
+
+    }
+
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Real-Time Multimodal Traffic Risk Prediction</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Traffic<span>Safe</span></div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#prediction">Prediction</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                REAL-TIME MULTIMODAL<br>
+                <span>TRAFFIC RISK PREDICTION</span>
+            </h1>
+
+            <p>
+                Using Computer Vision and Machine Learning
+            </p>
+
+            <p class="description">
+                Detect vehicles, analyze traffic density and predict
+                traffic risk levels in real time.
+            </p>
+
+            <a href="#prediction" class="start-btn">
+                Start Prediction
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Prediction Section -->
+    <section id="prediction" class="prediction-section">
+
+        <h2>Traffic Risk Prediction</h2>
+
+        <p class="section-text">
+            Upload a traffic video to analyze the traffic condition.
+        </p>
+
+
+        <div class="upload-box">
+
+            <div class="upload-icon">🎥</div>
+
+            <h3>Upload Traffic Video</h3>
+
+            <p>Select a traffic video for analysis</p>
+
+            <input
+                type="file"
+                id="videoInput"
+                accept="video/*"
+            >
+
+            <label for="videoInput" class="upload-btn">
+                Choose Video
+            </label>
+
+        </div>
+
+
+        <!-- Video -->
+        <div class="video-container">
+
+            <video
+                id="trafficVideo"
+                controls
+                muted
+            ></video>
+
+        </div>
+
+
+        <!-- Results -->
+        <div class="results">
+
+            <div class="result-card">
+
+                <h3>🚗 Vehicle Count</h3>
+
+                <div class="result-value" id="vehicleCount">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>📊 Traffic Density</h3>
+
+                <div class="result-value" id="density">
+                    LOW
+                </div>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>⚠️ Traffic Risk</h3>
+
+                <div
+                    class="result-value"
+                    id="risk"
+                >
+                    LOW
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="predict-btn"
+            onclick="startPrediction()"
+        >
+            Predict Traffic Risk
+        </button>
+
+    </section>
+
+
+    <!-- About -->
+    <section id="about" class="about-section">
+
+        <h2>About The Project</h2>
+
+        <p>
+            The Real-Time Multimodal Traffic Risk Prediction system
+            uses Computer Vision and Machine Learning to analyze
+            traffic videos. The system detects vehicles, calculates
+            traffic density and predicts the traffic risk level as
+            Low, Medium or High.
+        </p>
+
+
+        <div class="features">
+
+            <div class="feature">
+                <h3>🚗 Vehicle Detection</h3>
+                <p>
+                    Detects vehicles from traffic video using
+                    Computer Vision.
+                </p>
+            </div>
+
+
+            <div class="feature">
+                <h3>📊 Density Analysis</h3>
+                <p>
+                    Calculates traffic density based on the
+                    detected vehicles.
+                </p>
+            </div>
+
+
+            <div class="feature">
+                <h3>🤖 ML Prediction</h3>
+                <p>
+                    Machine Learning predicts the traffic risk
+                    level.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 TrafficSafe | Real-Time Multimodal Traffic Risk Prediction
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
